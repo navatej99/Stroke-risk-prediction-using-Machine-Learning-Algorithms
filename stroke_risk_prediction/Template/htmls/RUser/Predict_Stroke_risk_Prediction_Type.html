@@ -1,0 +1,150 @@
+{% extends 'RUser/Header.html' %}
+{% block userblock %}
+
+
+<link rel="icon" href="images/icon.png" type="image/x-icon" />
+
+	<link href="https://fonts.googleapis.com/css?family=Lobster" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css?family=Righteous" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fredoka+One" rel="stylesheet">
+
+
+
+		<style>
+			body {background-color:#000000;}
+			.container-fluid {padding:50px;}
+			.container{background-color:white;padding:50px;   }
+			#title{font-family: 'Fredoka One', cursive;
+}
+			.text-uppercase{
+			font-family: 'Righteous', cursive;
+
+			}
+			.tweettext{
+
+    border: 2px solid yellowgreen;
+    width: 904px;
+    height: 202px;
+    overflow: scroll;
+    background-color:;
+}
+		.style1 {
+	color: #FF0000;
+	font-weight: bold;
+}
+.style6 {
+	font-size: 24px;
+	color: #FFFF00;
+	font-weight: bold;
+}
+.style9 {color: #FFFF00; font-weight: bold; }
+        .style11 {color: #FF0000; font-weight: bold; font-style: italic; }
+        </style>
+
+	<body>
+	<div class="container-fluid">
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-5">
+
+                   <form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+							<p class="text-uppercase pull-center style1">PREDICTION OF STROKE RISK TYPE !!! </p>
+                            <hr>
+
+                                {% csrf_token %}
+                                <table width="1122" align="center">
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center" class="style9">Enter Reading Number </div></td>
+                                    <td><input type="text" name="idn"></td>
+                                    <td bgcolor="#FF0000"><div align="center"><span class="style9">Enter Gender </span></div></td>
+                                    <td><select name="gender">
+                                      <option>--- Select ---</option>
+                                      <option >Female</option>
+                                      <option>Male</option>
+                                                                        </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center" class="style9">Enger Age </div></td>
+                                    <td><input type="text" name="age"></td>
+                                    <td bgcolor="#FF0000"><div align="center" class="style9">Select Hypertension Status </div></td>
+                                    <td><select name="hypertension">
+                                      <option>--- Select ---</option>
+                                      <option>0</option>
+                                      <option>1</option>
+                                    </select>
+                                      <span class="style11">(0-No,1-Yes)</span></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center" class="style9">Enter Heart Disease</div></td>
+                                    <td><select name="heart_disease">
+                                      <option>--- Select ---</option>
+                                      <option>0</option>
+                                      <option>1</option>
+                                    </select>
+                                      <span class="style11">(0-No,1-Yes)</span></td>
+                                    <td bgcolor="#FF0000"><div align="center"><span class="style9">Enter Ever Married</span></div></td>
+                                    <td><select name="ever_married">
+                                      <option>--- Select ---</option>
+                                      <option>No</option>
+                                      <option>Yes</option>
+                                                                        </select></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center" class="style9">Enter Work Type</div></td>
+                                    <td><input type="text" name="work_type"></td>
+                                    <td bgcolor="#FF0000"><div align="center"><span class="style9">Enter Residence_type</span></div></td>
+                                    <td><input type="text" name="Residence_type"></td>
+                                  </tr>
+                                  <tr>
+                                    <td height="44" bgcolor="#FF0000"><div align="center" class="style9">Enter avg_glucose_level</div></td>
+                                    <td><input type="text" name="avg_glucose_level"></td>
+                                    <td bgcolor="#FF0000"><div align="center"><span class="style9">Enter BMI </span></div></td>
+                                    <td><input type="text" name="bmi"></td>
+                                  </tr>
+                                  <tr>
+                                    <td width="287" height="44" bgcolor="#FF0000"><div align="center" class="style9">Enter Smoking Status</div></td>
+                                    <td width="269"><input type="text" name="smoking_status"></td>
+                                    <td width="269"><input name="submit" type="submit" class="style1" value="Predict"></td>
+                                    <td width="269">&nbsp;</td>
+                                  </tr>
+                                </table>
+					 </fieldset>
+				  </form>
+
+
+ 					<form role="form" method="POST" >
+						{% csrf_token %}
+						<fieldset>
+
+                            <hr>
+                            <div>
+                              <table width="691" height="69" border="0" align="center" >
+                                    <tr><td width="406" bgcolor="#FF0000"><div align="center"><span class="style6">STROKE RISK PREDICTION  TYPE</span> :: </div></td>
+
+
+
+                                      <td width="275" bgcolor="#FFFFFF" style="color:red; font-size:20px; font-family:fantasy" ><div align="center">{{objs}}</div></td></tr>
+                      </table>
+
+
+
+                            </div>
+
+
+
+
+						</fieldset>
+					</form>
+				</div>
+
+				<div class="col-md-2">
+					<!-------null------>
+				</div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+    <tr>
